@@ -1025,6 +1025,10 @@
                             <div class="filter-checkbox"></div>
                             <span class="filter-option-text">Todos los periodos</span>
                         </div>
+                        <div class="filter-option" data-value="Febrero">
+                            <div class="filter-checkbox"></div>
+                            <span class="filter-option-text">Febrero</span>
+                        </div>
                         <div class="filter-option" data-value="Enero">
                             <div class="filter-checkbox"></div>
                             <span class="filter-option-text">Enero</span>
@@ -1061,6 +1065,7 @@
                 </div>
                 <select id="mesFilter" multiple style="display: none;">
                     <option value="todos" selected>Todos los periodos</option>
+                    <option value="Febrero">Febrero</option>
                     <option value="Enero">Enero</option>
                     <option value="Junio">Junio</option>
                     <option value="Julio">Julio</option>
@@ -1169,7 +1174,7 @@
                 <canvas id="pieChartCedi" style="max-height: 400px;"></canvas>
             </div>
             <div class="chart-container">
-                <h3>📈 Evolución Mensual de Guías (Gráfica de Líneas)</h3>
+                <h3>📈 Evolución Mensual de Guías y Costos</h3>
                 <canvas id="lineChartMensual" style="max-height: 400px;"></canvas>
             </div>
         </div>
@@ -1269,7 +1274,7 @@
         // DATOS PROTEGIDOS - NO MODIFICAR
         // Estos datos están congelados para prevenir modificaciones
         // ========================================
-        const datosCompletos = [{"ciudad": "Bogotá", "mes": "Enero", "ano": 2026, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 197181, "costo_total": 114704378.73, "costo_unitario": 581.7213, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 64944, "costo_total": 37779305.17, "costo_unitario": 581.7213, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Taipei", "guias": 16300, "costo_total": 9482056.45, "costo_unitario": 581.7213, "cedi": "Taipei"}, {"tipo": "PAU", "guias": 49925, "costo_total": 29042433.64, "costo_unitario": 581.7213, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 150857, "costo_total": 78445640.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 24644, "costo_total": 12814880.0, "costo_unitario": 520.0, "cedi": "Montevideo"}], "costo_total": 282268694.0, "guias_totales": 503851}, {"ciudad": "Medellín", "mes": "Enero", "ano": 2026, "operaciones": [{"tipo": "Recogidas Directas", "guias": 197875, "costo_total": 138667177.45, "costo_unitario": 700.7817, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 25031, "costo_total": 17541266.55, "costo_unitario": 700.7817, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 17495, "costo_total": 9097400.0, "costo_unitario": 520.0, "cedi": "Medellín"}], "costo_total": 165305844.0, "guias_totales": 240401}, {"ciudad": "Cali", "mes": "Enero", "ano": 2026, "operaciones": [{"tipo": "Recogidas Directas", "guias": 161578, "costo_total": 107588385.8, "costo_unitario": 665.8604, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 31688, "costo_total": 21099783.2, "costo_unitario": 665.8604, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 17957, "costo_total": 9337640.0, "costo_unitario": 520.0, "cedi": "Cali"}], "costo_total": 138025809.0, "guias_totales": 211223}, {"ciudad": "Bogotá", "mes": "Junio", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 68720, "costo_total": 72188126.23329286, "costo_unitario": 1050.4674946637494, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 87823, "costo_total": 89874880.15412512, "costo_unitario": 1023.3638130572301, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 116591, "costo_total": 60627320.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 7866, "costo_total": 3959459.753508173, "costo_unitario": 503.36381305723023, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 9856, "costo_total": 5125120.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 27500, "costo_total": 13842504.85907383, "costo_unitario": 503.36381305723023, "cedi": "Taipei"}], "costo_total": 245617411.0, "guias_totales": 318356}, {"ciudad": "Cali", "mes": "Junio", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 97365, "costo_total": 80023694.92637607, "costo_unitario": 821.8938522711044, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 24158, "costo_total": 19855311.68316534, "costo_unitario": 821.8938522711045, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 11518, "costo_total": 9466573.39045858, "costo_unitario": 821.8938522711044, "cedi": "Cali"}], "costo_total": 109345580.0, "guias_totales": 133041}, {"ciudad": "Bogotá", "mes": "Julio", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 191940, "costo_total": 114504843.63766457, "costo_unitario": 596.5658207651587, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 10059, "costo_total": 9261191.36405266, "costo_unitario": 920.6870826178209, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 155200, "costo_total": 80704000.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 12803, "costo_total": 5129996.718755962, "costo_unitario": 400.68708261782103, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 20001, "costo_total": 10400520.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 26284, "costo_total": 10531659.279526807, "costo_unitario": 400.68708261782103, "cedi": "Taipei"}], "costo_total": 230532211.0, "guias_totales": 416287}, {"ciudad": "Cali", "mes": "Julio", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 128818, "costo_total": 96886647.88131675, "costo_unitario": 752.1204170326876, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 29314, "costo_total": 22047657.904896203, "costo_unitario": 752.1204170326876, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 14900, "costo_total": 11206594.213787045, "costo_unitario": 752.1204170326876, "cedi": "Cali"}], "costo_total": 130140900.0, "guias_totales": 173032}, {"ciudad": "Bogotá", "mes": "Agosto", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 207675, "costo_total": 108286027.47771302, "costo_unitario": 521.4206210555581, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 32873, "costo_total": 28283373.992198676, "costo_unitario": 860.3831105222729, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 136489, "costo_total": 70974280.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 10561, "costo_total": 3594786.030225724, "costo_unitario": 340.3831105222729, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 19288, "costo_total": 10029760.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 32689, "costo_total": 11126783.499862578, "costo_unitario": 340.3831105222729, "cedi": "Taipei"}], "costo_total": 232295011.0, "guias_totales": 439575}, {"ciudad": "Cali", "mes": "Agosto", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 121410, "costo_total": 93391536.94223645, "costo_unitario": 769.2244209063211, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 27713, "costo_total": 21317516.376576878, "costo_unitario": 769.2244209063211, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 12034, "costo_total": 9256846.681186669, "costo_unitario": 769.2244209063211, "cedi": "Cali"}], "costo_total": 123965900.0, "guias_totales": 161157}, {"ciudad": "Medellín", "mes": "Agosto", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 175173, "costo_total": 122200544.10826084, "costo_unitario": 697.5991968411846, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 9508, "costo_total": 6632773.163565984, "costo_unitario": 697.5991968411847, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 8556, "costo_total": 5968658.728173176, "costo_unitario": 697.5991968411846, "cedi": "Medellín"}], "costo_total": 134801976.0, "guias_totales": 193237}, {"ciudad": "Bogotá", "mes": "Septiembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 217546, "costo_total": 108281320.25270513, "costo_unitario": 497.73988146279464, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 27678, "costo_total": 23385607.83670751, "costo_unitario": 844.916823350947, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 129491, "costo_total": 67335320.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 12056, "costo_total": 3917197.222319017, "costo_unitario": 324.916823350947, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 22296, "costo_total": 11593920.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 40027, "costo_total": 13005445.688268356, "costo_unitario": 324.916823350947, "cedi": "Taipei"}], "costo_total": 227518811.0, "guias_totales": 449094}, {"ciudad": "Cali", "mes": "Septiembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 125279, "costo_total": 94382883.84631923, "costo_unitario": 753.3815232107474, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 29185, "costo_total": 21987439.754905663, "costo_unitario": 753.3815232107474, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 17633, "costo_total": 13284376.398775108, "costo_unitario": 753.3815232107473, "cedi": "Cali"}], "costo_total": 129654700.0, "guias_totales": 172097}, {"ciudad": "Medellín", "mes": "Septiembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 173429, "costo_total": 118944661.08101943, "costo_unitario": 685.8406672529936, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 16902, "costo_total": 11592078.957910098, "costo_unitario": 685.8406672529936, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 16607, "costo_total": 11389755.961070465, "costo_unitario": 685.8406672529936, "cedi": "Medellín"}], "costo_total": 141926496.0, "guias_totales": 206938}, {"ciudad": "Bogotá", "mes": "Octubre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 184031, "costo_total": 105115919.27344234, "costo_unitario": 571.1859375509688, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 30402, "costo_total": 26963200.156827893, "costo_unitario": 886.8890256176533, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 145710, "costo_total": 75769200.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 9935, "costo_total": 3645042.4695113846, "costo_unitario": 366.8890256176532, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 24779, "costo_total": 12885080.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 38927, "costo_total": 14281889.100218385, "costo_unitario": 366.8890256176532, "cedi": "Taipei"}], "costo_total": 238660331.0, "guias_totales": 433784}, {"ciudad": "Cali", "mes": "Octubre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 145132, "costo_total": 106496379.59546064, "costo_unitario": 733.7897885749569, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 24543, "costo_total": 18009402.780995168, "costo_unitario": 733.7897885749569, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 18193, "costo_total": 13349837.62354419, "costo_unitario": 733.7897885749569, "cedi": "Cali"}], "costo_total": 137855620.0, "guias_totales": 187868}, {"ciudad": "Medellín", "mes": "Octubre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 167628, "costo_total": 115973243.31576392, "costo_unitario": 691.8488755802367, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 15519, "costo_total": 10736802.700129693, "costo_unitario": 691.8488755802367, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 16556, "costo_total": 11454249.9841064, "costo_unitario": 691.8488755802367, "cedi": "Medellín"}], "costo_total": 138164296.0, "guias_totales": 199703}, {"ciudad": "Bogotá", "mes": "Noviembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 147297, "costo_total": 101673200.3561708, "costo_unitario": 690.2598176213419, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 23027, "costo_total": 21991103.969711162, "costo_unitario": 955.0138519872828, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 129220, "costo_total": 67194400.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 13427, "costo_total": 5840930.9906332465, "costo_unitario": 435.0138519872828, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 27192, "costo_total": 14139840.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 38311, "costo_total": 16665815.68348479, "costo_unitario": 435.0138519872828, "cedi": "Taipei"}], "costo_total": 227505291.0, "guias_totales": 378474}, {"ciudad": "Cali", "mes": "Noviembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 137703, "costo_total": 102513904.108528, "costo_unitario": 744.4565776237846, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 23870, "costo_total": 17770178.507879734, "costo_unitario": 744.4565776237844, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 17367, "costo_total": 12928977.383592267, "costo_unitario": 744.4565776237846, "cedi": "Cali"}], "costo_total": 133213060.0, "guias_totales": 178940}, {"ciudad": "Medellín", "mes": "Noviembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 153970, "costo_total": 107846122.20632075, "costo_unitario": 700.4359434066425, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 17170, "costo_total": 12026485.148292052, "costo_unitario": 700.4359434066425, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 19059, "costo_total": 13349608.645387199, "costo_unitario": 700.4359434066424, "cedi": "Medellín"}], "costo_total": 133222216.0, "guias_totales": 190199}, {"ciudad": "Bogotá", "mes": "Diciembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 184941, "costo_total": 100378745.79745714, "costo_unitario": 542.7609118446269, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 28912, "costo_total": 24848974.679795615, "costo_unitario": 859.4692404467216, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 162245, "costo_total": 84367400.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 16884, "costo_total": 5731598.655702448, "costo_unitario": 339.46924044672164, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 34194, "costo_total": 17780880.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 53825, "costo_total": 18271931.86704479, "costo_unitario": 339.46924044672164, "cedi": "Taipei"}], "costo_total": 251379531.0, "guias_totales": 481001}, {"ciudad": "Cali", "mes": "Diciembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 161656, "costo_total": 113787306.31334127, "costo_unitario": 703.8854500503617, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 32859, "costo_total": 23128972.003204834, "costo_unitario": 703.8854500503617, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 23905, "costo_total": 16826381.683453895, "costo_unitario": 703.8854500503617, "cedi": "Cali"}], "costo_total": 153742660.0, "guias_totales": 218420}, {"ciudad": "Medellín", "mes": "Diciembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 187083, "costo_total": 124055011.035097, "costo_unitario": 663.1014631746177, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 25146, "costo_total": 16674349.392988939, "costo_unitario": 663.1014631746178, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 27592, "costo_total": 18296295.571914054, "costo_unitario": 663.1014631746178, "cedi": "Medellín"}], "costo_total": 159025656.0, "guias_totales": 239821}];
+        const datosCompletos = [{"ciudad": "Bogotá", "mes": "Febrero", "ano": 2026, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 201464, "costo_total": 119943243.18, "costo_unitario": 595.3582, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 46337, "costo_total": 27587112.63, "costo_unitario": 595.3582, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Taipei", "guias": 18218, "costo_total": 10846235.58, "costo_unitario": 595.3582, "cedi": "Taipei"}, {"tipo": "PAU", "guias": 54810, "costo_total": 32631582.61, "costo_unitario": 595.3582, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 147680, "costo_total": 76793600.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 21275, "costo_total": 11063000.0, "costo_unitario": 520.0, "cedi": "Montevideo"}], "costo_total": 278864774.0, "guias_totales": 489784}, {"ciudad": "Medellín", "mes": "Febrero", "ano": 2026, "operaciones": [{"tipo": "Recogidas Directas", "guias": 191211, "costo_total": 135575609.79, "costo_unitario": 709.0367, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 21961, "costo_total": 15571154.21, "costo_unitario": 709.0367, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 14871, "costo_total": 7732920.0, "costo_unitario": 520.0, "cedi": "Medellín"}], "costo_total": 158879684.0, "guias_totales": 228043}, {"ciudad": "Cali", "mes": "Febrero", "ano": 2026, "operaciones": [{"tipo": "Recogidas Directas", "guias": 129643, "costo_total": 91317303.18, "costo_unitario": 704.3751, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 23251, "costo_total": 16377425.82, "costo_unitario": 704.3751, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 14552, "costo_total": 7567040.0, "costo_unitario": 520.0, "cedi": "Cali"}], "costo_total": 115261769.0, "guias_totales": 167446}, {"ciudad": "Bogotá", "mes": "Enero", "ano": 2026, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 197181, "costo_total": 114704378.73, "costo_unitario": 581.7213, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 64944, "costo_total": 37779305.17, "costo_unitario": 581.7213, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Taipei", "guias": 16300, "costo_total": 9482056.45, "costo_unitario": 581.7213, "cedi": "Taipei"}, {"tipo": "PAU", "guias": 49925, "costo_total": 29042433.64, "costo_unitario": 581.7213, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 150857, "costo_total": 78445640.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 24644, "costo_total": 12814880.0, "costo_unitario": 520.0, "cedi": "Montevideo"}], "costo_total": 282268694.0, "guias_totales": 503851}, {"ciudad": "Medellín", "mes": "Enero", "ano": 2026, "operaciones": [{"tipo": "Recogidas Directas", "guias": 197875, "costo_total": 138667177.45, "costo_unitario": 700.7817, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 25031, "costo_total": 17541266.55, "costo_unitario": 700.7817, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 17495, "costo_total": 9097400.0, "costo_unitario": 520.0, "cedi": "Medellín"}], "costo_total": 165305844.0, "guias_totales": 240401}, {"ciudad": "Cali", "mes": "Enero", "ano": 2026, "operaciones": [{"tipo": "Recogidas Directas", "guias": 161578, "costo_total": 107588385.8, "costo_unitario": 665.8604, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 31688, "costo_total": 21099783.2, "costo_unitario": 665.8604, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 17957, "costo_total": 9337640.0, "costo_unitario": 520.0, "cedi": "Cali"}], "costo_total": 138025809.0, "guias_totales": 211223}, {"ciudad": "Bogotá", "mes": "Junio", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 68720, "costo_total": 72188126.23329286, "costo_unitario": 1050.4674946637494, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 87823, "costo_total": 89874880.15412512, "costo_unitario": 1023.3638130572301, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 116591, "costo_total": 60627320.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 7866, "costo_total": 3959459.753508173, "costo_unitario": 503.36381305723023, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 9856, "costo_total": 5125120.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 27500, "costo_total": 13842504.85907383, "costo_unitario": 503.36381305723023, "cedi": "Taipei"}], "costo_total": 245617411.0, "guias_totales": 318356}, {"ciudad": "Cali", "mes": "Junio", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 97365, "costo_total": 80023694.92637607, "costo_unitario": 821.8938522711044, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 24158, "costo_total": 19855311.68316534, "costo_unitario": 821.8938522711045, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 11518, "costo_total": 9466573.39045858, "costo_unitario": 821.8938522711044, "cedi": "Cali"}], "costo_total": 109345580.0, "guias_totales": 133041}, {"ciudad": "Bogotá", "mes": "Julio", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 191940, "costo_total": 114504843.63766457, "costo_unitario": 596.5658207651587, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 10059, "costo_total": 9261191.36405266, "costo_unitario": 920.6870826178209, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 155200, "costo_total": 80704000.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 12803, "costo_total": 5129996.718755962, "costo_unitario": 400.68708261782103, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 20001, "costo_total": 10400520.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 26284, "costo_total": 10531659.279526807, "costo_unitario": 400.68708261782103, "cedi": "Taipei"}], "costo_total": 230532211.0, "guias_totales": 416287}, {"ciudad": "Cali", "mes": "Julio", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 128818, "costo_total": 96886647.88131675, "costo_unitario": 752.1204170326876, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 29314, "costo_total": 22047657.904896203, "costo_unitario": 752.1204170326876, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 14900, "costo_total": 11206594.213787045, "costo_unitario": 752.1204170326876, "cedi": "Cali"}], "costo_total": 130140900.0, "guias_totales": 173032}, {"ciudad": "Bogotá", "mes": "Agosto", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 207675, "costo_total": 108286027.47771302, "costo_unitario": 521.4206210555581, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 32873, "costo_total": 28283373.992198676, "costo_unitario": 860.3831105222729, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 136489, "costo_total": 70974280.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 10561, "costo_total": 3594786.030225724, "costo_unitario": 340.3831105222729, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 19288, "costo_total": 10029760.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 32689, "costo_total": 11126783.499862578, "costo_unitario": 340.3831105222729, "cedi": "Taipei"}], "costo_total": 232295011.0, "guias_totales": 439575}, {"ciudad": "Cali", "mes": "Agosto", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 121410, "costo_total": 93391536.94223645, "costo_unitario": 769.2244209063211, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 27713, "costo_total": 21317516.376576878, "costo_unitario": 769.2244209063211, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 12034, "costo_total": 9256846.681186669, "costo_unitario": 769.2244209063211, "cedi": "Cali"}], "costo_total": 123965900.0, "guias_totales": 161157}, {"ciudad": "Medellín", "mes": "Agosto", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 175173, "costo_total": 122200544.10826084, "costo_unitario": 697.5991968411846, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 9508, "costo_total": 6632773.163565984, "costo_unitario": 697.5991968411847, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 8556, "costo_total": 5968658.728173176, "costo_unitario": 697.5991968411846, "cedi": "Medellín"}], "costo_total": 134801976.0, "guias_totales": 193237}, {"ciudad": "Bogotá", "mes": "Septiembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 217546, "costo_total": 108281320.25270513, "costo_unitario": 497.73988146279464, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 27678, "costo_total": 23385607.83670751, "costo_unitario": 844.916823350947, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 129491, "costo_total": 67335320.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 12056, "costo_total": 3917197.222319017, "costo_unitario": 324.916823350947, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 22296, "costo_total": 11593920.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 40027, "costo_total": 13005445.688268356, "costo_unitario": 324.916823350947, "cedi": "Taipei"}], "costo_total": 227518811.0, "guias_totales": 449094}, {"ciudad": "Cali", "mes": "Septiembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 125279, "costo_total": 94382883.84631923, "costo_unitario": 753.3815232107474, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 29185, "costo_total": 21987439.754905663, "costo_unitario": 753.3815232107474, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 17633, "costo_total": 13284376.398775108, "costo_unitario": 753.3815232107473, "cedi": "Cali"}], "costo_total": 129654700.0, "guias_totales": 172097}, {"ciudad": "Medellín", "mes": "Septiembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 173429, "costo_total": 118944661.08101943, "costo_unitario": 685.8406672529936, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 16902, "costo_total": 11592078.957910098, "costo_unitario": 685.8406672529936, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 16607, "costo_total": 11389755.961070465, "costo_unitario": 685.8406672529936, "cedi": "Medellín"}], "costo_total": 141926496.0, "guias_totales": 206938}, {"ciudad": "Bogotá", "mes": "Octubre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 184031, "costo_total": 105115919.27344234, "costo_unitario": 571.1859375509688, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 30402, "costo_total": 26963200.156827893, "costo_unitario": 886.8890256176533, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 145710, "costo_total": 75769200.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 9935, "costo_total": 3645042.4695113846, "costo_unitario": 366.8890256176532, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 24779, "costo_total": 12885080.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 38927, "costo_total": 14281889.100218385, "costo_unitario": 366.8890256176532, "cedi": "Taipei"}], "costo_total": 238660331.0, "guias_totales": 433784}, {"ciudad": "Cali", "mes": "Octubre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 145132, "costo_total": 106496379.59546064, "costo_unitario": 733.7897885749569, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 24543, "costo_total": 18009402.780995168, "costo_unitario": 733.7897885749569, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 18193, "costo_total": 13349837.62354419, "costo_unitario": 733.7897885749569, "cedi": "Cali"}], "costo_total": 137855620.0, "guias_totales": 187868}, {"ciudad": "Medellín", "mes": "Octubre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 167628, "costo_total": 115973243.31576392, "costo_unitario": 691.8488755802367, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 15519, "costo_total": 10736802.700129693, "costo_unitario": 691.8488755802367, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 16556, "costo_total": 11454249.9841064, "costo_unitario": 691.8488755802367, "cedi": "Medellín"}], "costo_total": 138164296.0, "guias_totales": 199703}, {"ciudad": "Bogotá", "mes": "Noviembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 147297, "costo_total": 101673200.3561708, "costo_unitario": 690.2598176213419, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 23027, "costo_total": 21991103.969711162, "costo_unitario": 955.0138519872828, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 129220, "costo_total": 67194400.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 13427, "costo_total": 5840930.9906332465, "costo_unitario": 435.0138519872828, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 27192, "costo_total": 14139840.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 38311, "costo_total": 16665815.68348479, "costo_unitario": 435.0138519872828, "cedi": "Taipei"}], "costo_total": 227505291.0, "guias_totales": 378474}, {"ciudad": "Cali", "mes": "Noviembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 137703, "costo_total": 102513904.108528, "costo_unitario": 744.4565776237846, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 23870, "costo_total": 17770178.507879734, "costo_unitario": 744.4565776237844, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 17367, "costo_total": 12928977.383592267, "costo_unitario": 744.4565776237846, "cedi": "Cali"}], "costo_total": 133213060.0, "guias_totales": 178940}, {"ciudad": "Medellín", "mes": "Noviembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 153970, "costo_total": 107846122.20632075, "costo_unitario": 700.4359434066425, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 17170, "costo_total": 12026485.148292052, "costo_unitario": 700.4359434066425, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 19059, "costo_total": 13349608.645387199, "costo_unitario": 700.4359434066424, "cedi": "Medellín"}], "costo_total": 133222216.0, "guias_totales": 190199}, {"ciudad": "Bogotá", "mes": "Diciembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas Taipei", "guias": 184941, "costo_total": 100378745.79745714, "costo_unitario": 542.7609118446269, "cedi": "Taipei"}, {"tipo": "Veloces Taipei", "guias": 28912, "costo_total": 24848974.679795615, "costo_unitario": 859.4692404467216, "cedi": "Taipei"}, {"tipo": "Veloces Montevideo", "guias": 162245, "costo_total": 84367400.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "Veloces Transportadora Taipei", "guias": 16884, "costo_total": 5731598.655702448, "costo_unitario": 339.46924044672164, "cedi": "Taipei"}, {"tipo": "Veloces Transportadora Montevideo", "guias": 34194, "costo_total": 17780880.0, "costo_unitario": 520.0, "cedi": "Montevideo"}, {"tipo": "PAU", "guias": 53825, "costo_total": 18271931.86704479, "costo_unitario": 339.46924044672164, "cedi": "Taipei"}], "costo_total": 251379531.0, "guias_totales": 481001}, {"ciudad": "Cali", "mes": "Diciembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 161656, "costo_total": 113787306.31334127, "costo_unitario": 703.8854500503617, "cedi": "Cali"}, {"tipo": "Fulfillment", "guias": 32859, "costo_total": 23128972.003204834, "costo_unitario": 703.8854500503617, "cedi": "Cali"}, {"tipo": "Veloces Transportadora", "guias": 23905, "costo_total": 16826381.683453895, "costo_unitario": 703.8854500503617, "cedi": "Cali"}], "costo_total": 153742660.0, "guias_totales": 218420}, {"ciudad": "Medellín", "mes": "Diciembre", "ano": 2025, "operaciones": [{"tipo": "Recogidas Directas", "guias": 187083, "costo_total": 124055011.035097, "costo_unitario": 663.1014631746177, "cedi": "Medellín"}, {"tipo": "Fulfillment", "guias": 25146, "costo_total": 16674349.392988939, "costo_unitario": 663.1014631746178, "cedi": "Medellín"}, {"tipo": "Veloces Transportadora", "guias": 27592, "costo_total": 18296295.571914054, "costo_unitario": 663.1014631746178, "cedi": "Medellín"}], "costo_total": 159025656.0, "guias_totales": 239821}];
         
         // Congelar datos para prevenir modificaciones accidentales
         Object.freeze(datosCompletos);
@@ -1473,7 +1478,8 @@
             '2025-Octubre': 2037123,
             '2025-Noviembre': 2196409,
             '2025-Diciembre': 2345576,
-            '2026-Enero': 2404983
+            '2026-Enero': 2404983,
+            '2026-Febrero': 2512847
         };
         Object.freeze(movilizadosTotales);
 
@@ -1838,83 +1844,138 @@
                 }
             });
 
-            // Gráfica de Líneas - Evolución Mensual
-            const mesesOrden = ['Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 'Enero'];
-            const mesesLabels = ['Jun 2025', 'Jul 2025', 'Ago 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dic 2025', 'Ene 2026'];
-            const guiasPorMes = {};
-            
-            mesesOrden.forEach(mes => {
-                guiasPorMes[mes] = datos
-                    .filter(d => d.mes === mes)
-                    .reduce((sum, d) => sum + d.guias_totales, 0);
+            // Gráfica de Líneas - Evolución Mensual DINÁMICA
+            // Orden cronológico completo de todos los meses posibles
+            const MESES_ORDEN_GLOBAL = [
+                { mes: 'Junio',      ano: 2025, label: 'Jun 2025' },
+                { mes: 'Julio',      ano: 2025, label: 'Jul 2025' },
+                { mes: 'Agosto',     ano: 2025, label: 'Ago 2025' },
+                { mes: 'Septiembre', ano: 2025, label: 'Sep 2025' },
+                { mes: 'Octubre',    ano: 2025, label: 'Oct 2025' },
+                { mes: 'Noviembre',  ano: 2025, label: 'Nov 2025' },
+                { mes: 'Diciembre',  ano: 2025, label: 'Dic 2025' },
+                { mes: 'Enero',      ano: 2026, label: 'Ene 2026' },
+                { mes: 'Febrero',    ano: 2026, label: 'Feb 2026' },
+                { mes: 'Marzo',      ano: 2026, label: 'Mar 2026' },
+                { mes: 'Abril',      ano: 2026, label: 'Abr 2026' },
+                { mes: 'Mayo',       ano: 2026, label: 'May 2026' }
+            ];
+
+            // Calcular guías y costos por período usando datos filtrados
+            const periodoMapLine = {};
+            datos.forEach(d => {
+                const key = `${d.ano}-${d.mes}`;
+                if (!periodoMapLine[key]) periodoMapLine[key] = { guias: 0, costo: 0 };
+                periodoMapLine[key].guias += d.guias_totales;
+                periodoMapLine[key].costo += d.costo_total;
             });
+
+            // Filtrar solo los meses que tienen datos en los datos actuales
+            const mesesConDatos = MESES_ORDEN_GLOBAL.filter(m => {
+                const key = `${m.ano}-${m.mes}`;
+                return periodoMapLine[key] && periodoMapLine[key].guias > 0;
+            });
+
+            const lineLabels     = mesesConDatos.map(m => m.label);
+            const lineDataGuias  = mesesConDatos.map(m => periodoMapLine[`${m.ano}-${m.mes}`].guias);
+            const lineDataCostos = mesesConDatos.map(m => periodoMapLine[`${m.ano}-${m.mes}`].costo);
 
             const ctxLine = document.getElementById('lineChartMensual').getContext('2d');
             if (lineChartMensual) lineChartMensual.destroy();
-            
+
             lineChartMensual = new Chart(ctxLine, {
                 type: 'line',
                 data: {
-                    labels: mesesLabels,
-                    datasets: [{
-                        label: 'Total de Guías',
-                        data: mesesOrden.map(mes => guiasPorMes[mes] || 0),
-                        borderColor: '#FF6600',
-                        backgroundColor: 'rgba(255, 102, 0, 0.1)',
-                        tension: 0.4,
-                        fill: true,
-                        pointBackgroundColor: '#FF6600',
-                        pointBorderColor: '#FFFFFF',
-                        pointBorderWidth: 3,
-                        pointRadius: 6,
-                        pointHoverRadius: 9,
-                        borderWidth: 3
-                    }]
+                    labels: lineLabels,
+                    datasets: [
+                        {
+                            label: 'Total Guías',
+                            data: lineDataGuias,
+                            borderColor: '#FF6600',
+                            backgroundColor: 'rgba(255, 102, 0, 0.08)',
+                            tension: 0.4,
+                            fill: true,
+                            pointBackgroundColor: '#FF6600',
+                            pointBorderColor: '#FFFFFF',
+                            pointBorderWidth: 3,
+                            pointRadius: 7,
+                            pointHoverRadius: 10,
+                            borderWidth: 3,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Costo Total (COP)',
+                            data: lineDataCostos,
+                            borderColor: '#1A1A1A',
+                            backgroundColor: 'rgba(26, 26, 26, 0.04)',
+                            tension: 0.4,
+                            fill: false,
+                            pointBackgroundColor: '#1A1A1A',
+                            pointBorderColor: '#FFFFFF',
+                            pointBorderWidth: 3,
+                            pointRadius: 6,
+                            pointHoverRadius: 9,
+                            borderWidth: 2,
+                            borderDash: [6, 3],
+                            yAxisID: 'y1'
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: true,
+                    interaction: { mode: 'index', intersect: false },
                     plugins: {
                         legend: {
                             display: true,
                             position: 'top',
                             labels: {
                                 font: { size: 13, family: 'Inter', weight: 600 },
-                                padding: 15
+                                padding: 20,
+                                usePointStyle: true
                             }
                         },
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return `Guías: ${formatearNumero(context.parsed.y)}`;
+                                    if (context.dataset.label === 'Total Guías') {
+                                        return `  Guías: ${formatearNumero(context.parsed.y)}`;
+                                    }
+                                    return `  Costo: ${formatearMoneda(context.parsed.y)}`;
                                 }
                             },
-                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            backgroundColor: 'rgba(0,0,0,0.85)',
                             titleFont: { size: 14, weight: 'bold' },
                             bodyFont: { size: 13 },
-                            padding: 12
+                            padding: 14
                         }
                     },
                     scales: {
                         y: {
-                            beginAtZero: true,
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: { display: true, text: 'Total Guías', font: { size: 12, family: 'Inter', weight: 600 } },
                             ticks: {
-                                callback: function(value) {
-                                    return formatearNumero(value);
-                                },
-                                font: { size: 12 }
+                                callback: v => formatearNumero(v),
+                                font: { size: 11 }
                             },
-                            grid: {
-                                color: 'rgba(0, 0, 0, 0.05)'
-                            }
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: { display: true, text: 'Costo Total (COP)', font: { size: 12, family: 'Inter', weight: 600 } },
+                            ticks: {
+                                callback: v => '$' + formatearNumero(Math.round(v / 1000000)) + 'M',
+                                font: { size: 11 }
+                            },
+                            grid: { drawOnChartArea: false }
                         },
                         x: {
-                            ticks: {
-                                font: { size: 12, weight: 600 }
-                            },
-                            grid: {
-                                display: false
-                            }
+                            ticks: { font: { size: 12, weight: 600 } },
+                            grid: { display: false }
                         }
                     }
                 },
@@ -1922,19 +1983,18 @@
                     id: 'lineValueLabels',
                     afterDatasetsDraw: function(chart) {
                         const ctx = chart.ctx;
-                        ctx.font = 'bold 11px Inter';
-                        ctx.fillStyle = '#1A1A1A';
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'bottom';
-                        
                         chart.data.datasets.forEach((dataset, i) => {
+                            if (i !== 0) return; // Solo etiquetar guías (dataset 0)
                             const meta = chart.getDatasetMeta(i);
                             if (!meta.hidden) {
                                 meta.data.forEach((element, index) => {
-                                    const data = dataset.data[index];
-                                    if (data > 0) {
-                                        const value = formatearNumero(data);
-                                        ctx.fillText(value, element.x, element.y - 12);
+                                    const val = dataset.data[index];
+                                    if (val > 0) {
+                                        ctx.font = 'bold 10px Inter';
+                                        ctx.fillStyle = '#FF6600';
+                                        ctx.fillText(formatearNumero(val), element.x, element.y - 12);
                                     }
                                 });
                             }
@@ -1956,7 +2016,18 @@
                 });
             });
 
-            const cedisOrdenados = Object.keys(cediMapBar).sort();
+            const cedisOrdenados = Object.keys(cediMapBar).sort((a, b) => cediMapBar[b].costo - cediMapBar[a].costo);
+
+            // Colores por CEDI para mejor identificación visual
+            const CEDI_COLORES_BAR = {
+                'Bogotá - Taipei':     { bg: '#FF6600', border: '#E55A00' },
+                'Bogotá - Montevideo': { bg: '#FF8533', border: '#E06B1A' },
+                'Medellín - Medellín': { bg: '#B8B8B8', border: '#999999' },
+                'Cali - Cali':         { bg: '#CC5200', border: '#A34200' }
+            };
+
+            const barBgColors  = cedisOrdenados.map(c => (CEDI_COLORES_BAR[c] || { bg: '#FFB366' }).bg);
+            const barBdrColors = cedisOrdenados.map(c => (CEDI_COLORES_BAR[c] || { border: '#E55A00' }).border);
 
             const ctxBar = document.getElementById('barChartComparativo').getContext('2d');
             if (barChartComparativo) barChartComparativo.destroy();
@@ -1969,26 +2040,29 @@
                         {
                             label: 'Costo Total (COP)',
                             data: cedisOrdenados.map(cedi => cediMapBar[cedi].costo),
-                            backgroundColor: '#FF6600',
-                            borderColor: '#E55A00',
+                            backgroundColor: barBgColors,
+                            borderColor: barBdrColors,
                             borderWidth: 2,
                             yAxisID: 'y',
-                            barThickness: 40
+                            barThickness: 44,
+                            borderRadius: 6
                         },
                         {
                             label: 'Total Guías',
                             data: cedisOrdenados.map(cedi => cediMapBar[cedi].guias),
-                            backgroundColor: '#B8B8B8',
-                            borderColor: '#999999',
+                            backgroundColor: 'rgba(26,26,26,0.13)',
+                            borderColor: 'rgba(26,26,26,0.45)',
                             borderWidth: 2,
                             yAxisID: 'y1',
-                            barThickness: 40
+                            barThickness: 44,
+                            borderRadius: 6
                         }
                     ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: true,
+                    interaction: { mode: 'index', intersect: false },
                     plugins: {
                         legend: {
                             position: 'top',
@@ -2003,16 +2077,16 @@
                                 label: function(context) {
                                     const label = context.dataset.label || '';
                                     if (label.includes('Costo')) {
-                                        return `${label}: ${formatearMoneda(context.parsed.y)}`;
+                                        return `  ${label}: ${formatearMoneda(context.parsed.y)}`;
                                     } else {
-                                        return `${label}: ${formatearNumero(context.parsed.y)}`;
+                                        return `  ${label}: ${formatearNumero(context.parsed.y)}`;
                                     }
                                 }
                             },
-                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            backgroundColor: 'rgba(0,0,0,0.85)',
                             titleFont: { size: 14, weight: 'bold' },
                             bodyFont: { size: 13 },
-                            padding: 12
+                            padding: 14
                         }
                     },
                     scales: {
@@ -2027,7 +2101,7 @@
                             },
                             ticks: {
                                 callback: function(value) {
-                                    return formatearMoneda(value);
+                                    return '$' + formatearNumero(Math.round(value / 1000000)) + 'M';
                                 },
                                 font: { size: 11 }
                             },
@@ -2056,7 +2130,8 @@
                         },
                         x: {
                             ticks: {
-                                font: { size: 11, weight: 600 }
+                                font: { size: 11, weight: 600 },
+                                maxRotation: 30
                             },
                             grid: {
                                 display: false
@@ -2068,7 +2143,6 @@
                     id: 'barValueLabels',
                     afterDatasetsDraw: function(chart) {
                         const ctx = chart.ctx;
-                        ctx.font = 'bold 10px Inter';
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'bottom';
                         
@@ -2078,19 +2152,15 @@
                                 meta.data.forEach((element, index) => {
                                     const data = dataset.data[index];
                                     if (data > 0) {
-                                        // Color negro para ambos datasets
-                                        ctx.fillStyle = '#1A1A1A';
                                         ctx.font = 'bold 10px Inter';
-                                        
+                                        ctx.fillStyle = i === 0 ? '#E55A00' : '#555555';
                                         let value;
                                         if (dataset.label.includes('Costo')) {
                                             value = '$' + formatearNumero(Math.round(data / 1000000)) + 'M';
                                         } else {
                                             value = formatearNumero(data);
                                         }
-                                        
-                                        // Posicionar encima de la barra con más espacio
-                                        ctx.fillText(value, element.x, element.y - 8);
+                                        ctx.fillText(value, element.x, element.y - 6);
                                     }
                                 });
                             }
