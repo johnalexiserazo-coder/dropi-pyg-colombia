@@ -714,7 +714,248 @@
             }
         }
 
-        /* ===================== LOGIN SCREEN ===================== */
+        /* ===================== TABS ===================== */
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+            border-bottom: 3px solid var(--dropi-orange);
+            position: relative;
+        }
+        .tab-btn {
+            padding: 14px 32px;
+            background: #fff;
+            border: 1px solid var(--dropi-gray-light);
+            border-bottom: none;
+            border-radius: 12px 12px 0 0;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.92em;
+            font-weight: 600;
+            color: var(--dropi-gray);
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            top: 3px;
+            margin-right: 4px;
+        }
+        .tab-btn:hover { background: #FFF5EE; color: var(--dropi-orange); }
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--dropi-orange) 0%, var(--dropi-orange-dark) 100%);
+            color: #fff;
+            border-color: var(--dropi-orange);
+            box-shadow: 0 -4px 14px rgba(255,102,0,0.2);
+        }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        /* ===================== SOPORTE STYLES ===================== */
+        .soporte-header {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+            border-radius: 16px;
+            padding: 28px 36px;
+            margin-bottom: 28px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .soporte-header-icon {
+            width: 56px; height: 56px;
+            background: var(--dropi-orange);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8em; flex-shrink: 0;
+        }
+        .soporte-header h2 { font-size: 1.6em; font-weight: 800; margin-bottom: 4px; }
+        .soporte-header p { opacity: 0.7; font-size: 0.9em; }
+
+        .soporte-section {
+            background: #fff;
+            border-radius: 16px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            border: 1px solid var(--dropi-gray-light);
+            overflow: hidden;
+        }
+        .soporte-section-header {
+            background: linear-gradient(135deg, var(--dropi-orange) 0%, var(--dropi-orange-dark) 100%);
+            padding: 16px 24px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .soporte-section-header h3 { color: #fff; font-size: 1.05em; font-weight: 700; margin: 0; }
+        .soporte-section-header span { font-size: 1.3em; }
+        .soporte-section-sub {
+            background: #F0F0F0;
+            padding: 10px 24px;
+            font-size: 0.8em;
+            color: #555;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .soporte-section-body { padding: 24px; }
+
+        .soporte-cedi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+        .soporte-cedi-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+            border: 1px solid var(--dropi-gray-light);
+            overflow: hidden;
+        }
+        .soporte-cedi-title {
+            padding: 14px 20px;
+            font-weight: 800;
+            font-size: 1em;
+            display: flex; align-items: center; gap: 10px;
+            color: #fff;
+        }
+        .soporte-cedi-title.bogota  { background: linear-gradient(135deg,#FF6600,#E55A00); }
+        .soporte-cedi-title.medellin{ background: linear-gradient(135deg,#B8B8B8,#888); }
+        .soporte-cedi-title.cali    { background: linear-gradient(135deg,#CC5200,#A34200); }
+        .soporte-cedi-title.montevideo { background: linear-gradient(135deg,#FF8533,#E06B1A); }
+
+        .s-table { width: 100%; border-collapse: collapse; font-size: 0.83em; }
+        .s-table thead th {
+            background: #F8F9FA;
+            padding: 9px 12px;
+            text-align: left;
+            font-weight: 700;
+            color: #444;
+            border-bottom: 2px solid var(--dropi-gray-light);
+            font-size: 0.78em;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .s-table thead th.text-right { text-align: right; }
+        .s-table tbody td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #F0F0F0;
+            color: #333;
+            vertical-align: middle;
+        }
+        .s-table tbody td.text-right { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+        .s-table tbody tr:last-child td { border-bottom: none; }
+        .s-table tbody tr:hover { background: #FFF8F5; }
+        .s-table tfoot td {
+            padding: 10px 12px;
+            font-weight: 800;
+            background: linear-gradient(135deg,var(--dropi-orange),var(--dropi-orange-dark));
+            color: #fff;
+            font-size: 0.9em;
+        }
+        .s-table tfoot td.text-right { text-align: right; }
+
+        .badge-formula {
+            display: inline-block;
+            background: #FFF3E8;
+            border: 1px solid #FFB366;
+            color: #E55A00;
+            border-radius: 6px;
+            padding: 3px 9px;
+            font-size: 0.78em;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+        }
+        .badge-green {
+            display: inline-block;
+            background: #E8F5E9;
+            border: 1px solid #81C784;
+            color: #2E7D32;
+            border-radius: 6px;
+            padding: 3px 9px;
+            font-size: 0.78em;
+            font-weight: 700;
+        }
+        .badge-gray {
+            display: inline-block;
+            background: #F5F5F5;
+            border: 1px solid #CCC;
+            color: #555;
+            border-radius: 6px;
+            padding: 3px 9px;
+            font-size: 0.78em;
+            font-weight: 700;
+        }
+        .badge-blue {
+            display: inline-block;
+            background: #E3F2FD;
+            border: 1px solid #90CAF9;
+            color: #1565C0;
+            border-radius: 6px;
+            padding: 3px 9px;
+            font-size: 0.78em;
+            font-weight: 700;
+        }
+        .soporte-legend {
+            display: flex; flex-wrap: wrap; gap: 14px;
+            padding: 14px 24px;
+            background: #FAFAFA;
+            border-top: 1px solid var(--dropi-gray-light);
+            font-size: 0.8em;
+        }
+        .soporte-legend-item { display: flex; align-items: center; gap: 6px; color: #555; }
+        .leg-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+        .formula-box {
+            background: #FFF8F0;
+            border: 1.5px solid #FFB366;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin: 14px 0;
+            font-size: 0.85em;
+        }
+        .formula-box .formula-title { font-weight: 700; color: var(--dropi-orange); margin-bottom: 8px; font-size: 0.9em; }
+        .formula-box code { font-family: 'Courier New', monospace; background: #fff; padding: 2px 6px; border-radius: 4px; border: 1px solid #FFD0A0; }
+
+        .summary-totals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .stg-card {
+            background: #fff;
+            border: 1px solid var(--dropi-gray-light);
+            border-radius: 12px;
+            padding: 16px 18px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .stg-card .stg-label { font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.5px; color: var(--dropi-gray); margin-bottom: 6px; font-weight: 600; }
+        .stg-card .stg-value { font-size: 1.35em; font-weight: 800; color: var(--dropi-dark); }
+        .stg-card .stg-sub   { font-size: 0.75em; color: var(--dropi-gray); margin-top: 4px; }
+        .stg-card.orange { background: linear-gradient(135deg,var(--dropi-orange),var(--dropi-orange-dark)); border-color: var(--dropi-orange-dark); }
+        .stg-card.orange .stg-label, .stg-card.orange .stg-value, .stg-card.orange .stg-sub { color: #fff; }
+
+        .modelo-row {
+            display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0;
+        }
+        .modelo-chip {
+            display: flex; align-items: center; gap: 8px;
+            background: #F8F9FA; border: 1px solid var(--dropi-gray-light);
+            border-radius: 8px; padding: 8px 14px;
+            font-size: 0.82em; font-weight: 600; color: #333;
+        }
+        .modelo-chip .chip-icon { font-size: 1.1em; }
+        .divider-title {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--dropi-orange);
+            font-weight: 700;
+            padding: 8px 0 6px;
+            border-bottom: 1px dashed #FFB366;
+            margin: 16px 0 12px;
+        }
+        
         #loginScreen {
             position: fixed;
             inset: 0;
@@ -974,6 +1215,21 @@
                 Cerrar sesión
             </button>
         </div>
+
+        <!-- TAB NAVIGATION -->
+        <div class="tab-nav" style="margin-bottom:28px; margin-top:-10px;">
+            <button class="tab-btn active" onclick="switchTab('dashboard',this)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                Dashboard
+            </button>
+            <button class="tab-btn" onclick="switchTab('soporte',this)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Soporte de Costos
+            </button>
+        </div>
+
+        <!-- TAB: DASHBOARD (contenido original) -->
+        <div id="tab-dashboard" class="tab-panel active">
 
         <!-- Filtros -->
         <div class="filters">
@@ -1252,11 +1508,737 @@
                 <strong>🌊 Flujo Colaborativo:</strong> Las operaciones Veloces (aliado a $520/guía) representan el 45% del volumen, creando un ecosistema diversificado y resiliente.
             </div>
 
-            <div class="insight-item">
-                <strong>📈 Crecimiento Sostenible:</strong> El volumen aumentó 72% entre Junio y Diciembre, mostrando adaptabilidad natural similar a ecosistemas que se expanden según recursos disponibles.
+        </div><!-- /insight-item -->
+        </div><!-- /insights -->
+        </div><!-- /tab-dashboard -->
+
+        <!-- ================================================================ -->
+        <!-- TAB: SOPORTE DE COSTOS                                           -->
+        <!-- ================================================================ -->
+        <div id="tab-soporte" class="tab-panel">
+
+            <!-- HEADER SOPORTE -->
+            <div class="soporte-header">
+                <div class="soporte-header-icon">📋</div>
+                <div>
+                    <h2>Soporte Detallado de Costos — Marzo 2026</h2>
+                    <p>Desglose completo de nómina, gastos fijos y fórmulas de cálculo por CEDI · Datos actualizados al período más reciente</p>
+                </div>
             </div>
-        </div>
-    </div>
+
+            <!-- LEYENDA GLOBAL -->
+            <div class="soporte-section" style="margin-bottom:24px;">
+                <div class="soporte-section-body" style="padding:18px 24px;">
+                    <div style="font-weight:700; color:#333; margin-bottom:12px; font-size:0.9em;">📌 Convenciones y modelo de cálculo</div>
+                    <div class="modelo-row">
+                        <div class="modelo-chip"><span class="chip-icon">🟡</span> Input manual (amarillo)</div>
+                        <div class="modelo-chip"><span class="chip-icon">🟢</span> Desde parámetros</div>
+                        <div class="modelo-chip"><span class="chip-icon">⬛</span> Fórmula automática</div>
+                        <div class="modelo-chip"><span class="chip-icon">💵</span> Base 520 COP/guía (Veloces)</div>
+                        <div class="modelo-chip"><span class="chip-icon">🏗️</span> Overhead CD = GF + Nómina</div>
+                    </div>
+                    <div class="formula-box" style="margin-top:14px;">
+                        <div class="formula-title">🔢 Fórmulas Clave por Modelo de CEDI</div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:0.83em; color:#444;">
+                            <div><strong>Taipei (Bogotá):</strong><br><code>CU = (Nóm.Rec + GF.CD + Nóm.CD) ÷ Total Guías Taipei</code><br>→ Todas las guías absorben el overhead</div>
+                            <div><strong>Medellín / Cali / Montevideo (nuevo Marzo):</strong><br><code>CU propias = 520 + (GF + Nómina) ÷ Guías Propias</code><br><code>Veloces Transportadora = 520 exacto (sin overhead)</code></div>
+                            <div><strong>Montevideo Feb (modelo anterior):</strong><br><code>CU = 520 exacto para todas las guías</code><br>→ Sin overhead adicional de CD</div>
+                            <div><strong>Costo Recuperable (KPI):</strong><br><code>Costo Recup. = Σ Costos Período ÷ Movilizados Totales</code><br>→ Movilizados ≠ suma guías por ciudad</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- SECCIÓN 1: RESUMEN EJECUTIVO MARZO 2026                      -->
+            <!-- ============================================================ -->
+            <div class="soporte-section">
+                <div class="soporte-section-header">
+                    <span>📊</span>
+                    <h3>Resumen Ejecutivo — Marzo 2026</h3>
+                </div>
+                <div class="soporte-section-body">
+                    <div class="summary-totals-grid">
+                        <div class="stg-card orange">
+                            <div class="stg-label">Costo Total Operación</div>
+                            <div class="stg-value">$615,422,655</div>
+                            <div class="stg-sub">Bogotá + Medellín + Cali</div>
+                        </div>
+                        <div class="stg-card">
+                            <div class="stg-label">Total Guías Marzo</div>
+                            <div class="stg-value">1,010,639</div>
+                            <div class="stg-sub">Todas las ciudades</div>
+                        </div>
+                        <div class="stg-card">
+                            <div class="stg-label">Movilizados Totales</div>
+                            <div class="stg-value">2,445,533</div>
+                            <div class="stg-sub">Para KPI Costo Recuperable</div>
+                        </div>
+                        <div class="stg-card">
+                            <div class="stg-label">Costo Recuperable</div>
+                            <div class="stg-value">$251.65</div>
+                            <div class="stg-sub">Por guía movilizada</div>
+                        </div>
+                        <div class="stg-card">
+                            <div class="stg-label">Novedad Marzo</div>
+                            <div class="stg-value" style="font-size:0.95em;">Nuevo CD Montevideo</div>
+                            <div class="stg-sub">Operación propia implementada</div>
+                        </div>
+                    </div>
+
+                    <table class="s-table">
+                        <thead>
+                            <tr>
+                                <th>Ciudad / CEDI</th>
+                                <th class="text-right">Guías Totales</th>
+                                <th class="text-right">Costo Total</th>
+                                <th class="text-right">CU Promedio</th>
+                                <th>Modelo de Costo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge-formula">Bogotá — Taipei</span></td>
+                                <td class="text-right">379,758</td>
+                                <td class="text-right">$191,008,174</td>
+                                <td class="text-right">$502.97</td>
+                                <td><span class="badge-green">Overhead distribuido entre todas las guías</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge-formula">Bogotá — Montevideo</span></td>
+                                <td class="text-right">198,613</td>
+                                <td class="text-right">$131,147,948</td>
+                                <td class="text-right">$660.34</td>
+                                <td><span class="badge-blue">NUEVO: Propias 950.04 / Veloces $520</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge-formula">Medellín</span></td>
+                                <td class="text-right">228,247</td>
+                                <td class="text-right">$158,985,764</td>
+                                <td class="text-right">$696.69</td>
+                                <td><span class="badge-green">Propias $712.06 / Veloces Transp $520</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge-formula">Cali</span></td>
+                                <td class="text-right">204,021</td>
+                                <td class="text-right">$134,280,769</td>
+                                <td class="text-right">$658.16</td>
+                                <td><span class="badge-green">Propias $671.57 / Veloces Transp $520</span></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><strong>TOTAL MARZO 2026</strong></td>
+                                <td class="text-right"><strong>1,010,639</strong></td>
+                                <td class="text-right"><strong>$615,422,655</strong></td>
+                                <td class="text-right"><strong>$608.96</strong></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- SECCIÓN 2: BOGOTÁ — TAIPEI (Detalle completo)                -->
+            <!-- ============================================================ -->
+            <div class="soporte-section">
+                <div class="soporte-section-header">
+                    <span>🏢</span>
+                    <h3>Bogotá — CEDI Taipei · Detalle de Costos Marzo 2026</h3>
+                </div>
+                <div class="soporte-section-sub">Taipei mantiene el modelo de costo único distribuido entre TODAS las guías · Nómina de recolección + CD Taipei</div>
+                <div class="soporte-section-body">
+
+                    <div class="divider-title">1. Personal de Recolección a Pie — Taipei</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr>
+                                <th>Cargo / Concepto</th>
+                                <th class="text-right">Cant. Total</th>
+                                <th class="text-right">Directos</th>
+                                <th class="text-right">Temporal</th>
+                                <th class="text-right">Salario Base</th>
+                                <th class="text-right">Aux. Transp.</th>
+                                <th class="text-right">Prestaciones</th>
+                                <th class="text-right">Costo x Persona</th>
+                                <th class="text-right">Adm. 7% ETT</th>
+                                <th class="text-right">Costo Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Carrier (Recolección a Pie)</strong></td>
+                                <td class="text-right">17</td>
+                                <td class="text-right">10</td>
+                                <td class="text-right">7</td>
+                                <td class="text-right">$1,750,905</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,201,121</td>
+                                <td class="text-right">$3,201,121</td>
+                                <td class="text-right">$1,568,549</td>
+                                <td class="text-right">$55,987,603</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="formula-box">
+                        <div class="formula-title">Horas Extras Recolección a Pie</div>
+                        <div style="font-size:0.83em; color:#555;">Horas Extras Carrier: <strong>231 horas</strong> × <strong>$12,025</strong> valor hora = <strong>$2,777,775</strong></div>
+                    </div>
+                    <div style="text-align:right; font-size:0.88em; color:#333; font-weight:700; padding:8px 0;">
+                        ▶ TOTAL NÓMINA RECOLECCIÓN A PIE: <span style="color:var(--dropi-orange);">$58,765,378</span>
+                    </div>
+
+                    <div class="divider-title">2. Personal Cross-Docking — Taipei</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr>
+                                <th>Cargo / Concepto</th>
+                                <th class="text-right">Cant. Total</th>
+                                <th class="text-right">Directos</th>
+                                <th class="text-right">Temporal</th>
+                                <th class="text-right">Salario Base</th>
+                                <th class="text-right">Aux. Transp.</th>
+                                <th class="text-right">Prestaciones</th>
+                                <th class="text-right">Costo x Persona</th>
+                                <th class="text-right">Adm. 7% ETT</th>
+                                <th class="text-right">Costo Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Aux. Cross-Docking</strong></td>
+                                <td class="text-right">20</td>
+                                <td class="text-right">5</td>
+                                <td class="text-right">15</td>
+                                <td class="text-right">$1,750,905</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,201,121</td>
+                                <td class="text-right">$3,201,121</td>
+                                <td class="text-right">$3,361,177</td>
+                                <td class="text-right">$67,383,593</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Supervisor Cross-Docking</strong></td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">$3,000,000</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,848,000</td>
+                                <td class="text-right">$5,097,095</td>
+                                <td class="text-right">$0</td>
+                                <td class="text-right">$5,097,095</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Asistente de Operaciones</strong></td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">$1,980,000</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,318,680</td>
+                                <td class="text-right">$3,547,775</td>
+                                <td class="text-right">$0</td>
+                                <td class="text-right">$3,547,775</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="formula-box">
+                        <div class="formula-title">Horas Extras Cross-Docking</div>
+                        <div style="font-size:0.83em; color:#555; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
+                            <div>HE Aux. CD: <strong>175 h × $12,025</strong> = <strong>$2,104,375</strong></div>
+                            <div>HE Supervisor CD: <strong>80 h × $20,604</strong> = <strong>$1,648,320</strong></div>
+                            <div>HE Asist. Oper.: <strong>62 h × $13,599</strong> = <strong>$843,138</strong></div>
+                        </div>
+                    </div>
+                    <div style="text-align:right; font-size:0.88em; color:#333; font-weight:700; padding:8px 0;">
+                        ▶ TOTAL NÓMINA CROSS-DOCKING: <span style="color:var(--dropi-orange);">$80,624,296</span>
+                    </div>
+
+                    <div class="divider-title">3. Gastos Fijos Mensuales — Cross-Docking Taipei</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr><th>Concepto</th><th class="text-right">Cantidad</th><th class="text-right">Valor Unitario</th><th class="text-right">Valor Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Arriendo</td><td class="text-right">1</td><td class="text-right">$50,000,000</td><td class="text-right">$50,000,000</td></tr>
+                            <tr><td>Servicios públicos (Agua)</td><td class="text-right">1</td><td class="text-right">$190,000</td><td class="text-right">$190,000</td></tr>
+                            <tr><td>Internet</td><td class="text-right">1</td><td class="text-right">$478,500</td><td class="text-right">$478,500</td></tr>
+                            <tr><td>Alquiler de equipos (impresoras)</td><td class="text-right">1</td><td class="text-right">$500,000</td><td class="text-right">$500,000</td></tr>
+                            <tr><td>Promedio gastos papelería e insumos</td><td class="text-right">1</td><td class="text-right">$450,000</td><td class="text-right">$450,000</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>TOTAL GASTOS FIJOS TAIPEI</strong></td><td></td><td></td><td class="text-right"><strong>$51,618,500</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <div class="formula-box" style="margin-top:16px;">
+                        <div class="formula-title">🔢 Cálculo CU Taipei Marzo</div>
+                        <div style="font-size:0.85em; color:#555;">
+                            <div>Total costos Taipei = Nóm. Recolección <code>$58,765,378</code> + GF CD <code>$51,618,500</code> + Nóm. CD <code>$80,624,296</code> = <strong style="color:var(--dropi-orange);">$191,008,174</strong></div>
+                            <div style="margin-top:6px;">Total guías Taipei = 258,451 + 31,782 + 19,080 + 70,445 = <strong>379,758</strong></div>
+                            <div style="margin-top:6px;"><strong>CU = $191,008,174 ÷ 379,758 = <span style="color:var(--dropi-orange);">$502.97/guía</span></strong> (todas las guías Taipei por igual)</div>
+                        </div>
+                    </div>
+
+                    <div class="divider-title">4. Distribución por Tipo de Operación — Taipei</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Operación</th>
+                                <th class="text-right">Guías</th>
+                                <th class="text-right">CU ($/guía)</th>
+                                <th class="text-right">Costo Total</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Recogidas Directas Taipei</td><td class="text-right">258,451</td><td class="text-right">$502.97</td><td class="text-right">$129,993,979</td><td><span class="badge-green">Propia — absorbe overhead</span></td></tr>
+                            <tr><td>Rec. Veloces Entregadas Taipei</td><td class="text-right">31,782</td><td class="text-right">$502.97</td><td class="text-right">$15,985,501</td><td><span class="badge-green">Veloces Taipei — absorbe overhead</span></td></tr>
+                            <tr><td>Veloces Transportadora Taipei</td><td class="text-right">19,080</td><td class="text-right">$502.97</td><td class="text-right">$9,596,733</td><td><span class="badge-green">Absorbe overhead (≠ Cali/Med)</span></td></tr>
+                            <tr><td>PAU (Punto de Atención)</td><td class="text-right">70,445</td><td class="text-right">$502.97</td><td class="text-right">$35,431,961</td><td><span class="badge-green">Propia — absorbe overhead</span></td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>TOTAL TAIPEI</strong></td><td class="text-right"><strong>379,758</strong></td><td></td><td class="text-right"><strong>$191,008,174</strong></td><td></td></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- SECCIÓN 3: BOGOTÁ — MONTEVIDEO (Nuevo modelo Marzo)          -->
+            <!-- ============================================================ -->
+            <div class="soporte-section">
+                <div class="soporte-section-header">
+                    <span>🆕</span>
+                    <h3>Bogotá — CEDI Montevideo · Nuevo Modelo Operativo Marzo 2026</h3>
+                </div>
+                <div class="soporte-section-sub">Desde Marzo 2026 Montevideo implementa operación propia (Cross-Docking) igual a Cali y Medellín · Antes: solo 520/guía sin overhead</div>
+                <div class="soporte-section-body">
+
+                    <div style="background:#E3F2FD; border:1.5px solid #90CAF9; border-radius:10px; padding:14px 18px; margin-bottom:18px; font-size:0.85em; color:#1565C0;">
+                        <strong>⚡ Novedad operativa:</strong> En Febrero 2026 Montevideo facturaba todas sus guías a $520 exacto sin ningún overhead. 
+                        Desde Marzo 2026 se implementó una operación Cross-Docking propia, lo que agrega costos de nómina y gastos fijos que se distribuyen entre las guías <strong>propias</strong> (Fulfillment + Veloces Transportadora). Las Recogidas Veloces Entregadas siguen a $520.
+                    </div>
+
+                    <div class="divider-title">1. Personal Cross-Docking — Montevideo (Nuevo Marzo)</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr>
+                                <th>Cargo / Concepto</th>
+                                <th class="text-right">Cant. Total</th>
+                                <th class="text-right">Directos</th>
+                                <th class="text-right">Temporal</th>
+                                <th class="text-right">Salario Base</th>
+                                <th class="text-right">Aux. Transp.</th>
+                                <th class="text-right">Prestaciones</th>
+                                <th class="text-right">Costo x Persona</th>
+                                <th class="text-right">Costo Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Aux. Cross-Docking</strong></td>
+                                <td class="text-right">8</td>
+                                <td class="text-right">8</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">$1,750,905</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,201,121</td>
+                                <td class="text-right">$3,201,121</td>
+                                <td class="text-right">$25,608,967</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Supervisor Cross-Docking</strong></td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">$3,000,000</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,848,000</td>
+                                <td class="text-right">$5,097,095</td>
+                                <td class="text-right">$5,097,095</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Asistente de Operaciones</strong></td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">$1,980,000</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,318,680</td>
+                                <td class="text-right">$3,547,775</td>
+                                <td class="text-right">$3,547,775</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td colspan="8"><strong>TOTAL NÓMINA CD MONTEVIDEO (sin HE)</strong></td><td class="text-right"><strong>$18,120,188 ✓</strong></td></tr>
+                        </tfoot>
+                    </table>
+                    <div style="font-size:0.8em; color:#888; padding:6px 0 12px;">Sin horas extras registradas para Montevideo en este período.</div>
+
+                    <div class="divider-title">2. Gastos Fijos Mensuales — Montevideo</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr><th>Concepto</th><th class="text-right">Cantidad</th><th class="text-right">Valor Unitario</th><th class="text-right">Valor Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Arriendo</td><td class="text-right">1</td><td class="text-right">$9,350,000</td><td class="text-right">$9,350,000</td></tr>
+                            <tr><td>Servicios públicos (Agua)</td><td class="text-right">1</td><td class="text-right">$100,000</td><td class="text-right">$100,000</td></tr>
+                            <tr><td>Internet</td><td class="text-right">1</td><td class="text-right">$99,000</td><td class="text-right">$99,000</td></tr>
+                            <tr><td>Promedio gastos papelería e insumos</td><td class="text-right">1</td><td class="text-right">$200,000</td><td class="text-right">$200,000</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>TOTAL GASTOS FIJOS MONTEVIDEO</strong></td><td></td><td></td><td class="text-right"><strong>$9,749,000</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <div class="formula-box" style="margin-top:16px;">
+                        <div class="formula-title">🔢 Cálculo CU Montevideo Marzo (Nuevo Modelo)</div>
+                        <div style="font-size:0.85em; color:#555;">
+                            <div>Total CD Montevideo = GF <code>$9,749,000</code> + Nómina <code>$18,120,188</code> = <strong>$27,869,188</strong></div>
+                            <div style="margin-top:6px;">Guías <em>propias</em> = Fulfillment <code>38,475</code> + Veloces Transportadora <code>26,331</code> = <strong>64,806</strong></div>
+                            <div style="margin-top:6px;">Overhead por guía propia = $27,869,188 ÷ 64,806 = <strong>$430.04</strong></div>
+                            <div style="margin-top:6px;"><strong>CU propias = 520 + 430.04 = <span style="color:var(--dropi-orange);">$950.04/guía</span></strong></div>
+                            <div style="margin-top:6px;"><strong>Rec. Veloces Entregadas = <span style="color:var(--dropi-orange);">$520.00/guía</span></strong> (sin overhead)</div>
+                        </div>
+                    </div>
+
+                    <div class="divider-title">3. Distribución por Tipo de Operación — Montevideo</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Operación</th>
+                                <th class="text-right">Guías</th>
+                                <th class="text-right">CU ($/guía)</th>
+                                <th class="text-right">Costo Total</th>
+                                <th>Clasificación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Rec. Veloces Entregadas Montevideo</td>
+                                <td class="text-right">133,807</td>
+                                <td class="text-right">$520.00</td>
+                                <td class="text-right">$69,579,640</td>
+                                <td><span class="badge-gray">$520 exacto — sin overhead CD</span></td>
+                            </tr>
+                            <tr>
+                                <td>Fulfillment Montevideo</td>
+                                <td class="text-right">38,475</td>
+                                <td class="text-right">$950.04</td>
+                                <td class="text-right">$36,552,798</td>
+                                <td><span class="badge-blue">Propia — absorbe overhead CD</span></td>
+                            </tr>
+                            <tr>
+                                <td>Veloces Transportadora Montevideo</td>
+                                <td class="text-right">26,331</td>
+                                <td class="text-right">$950.04</td>
+                                <td class="text-right">$25,015,510</td>
+                                <td><span class="badge-blue">Propia — absorbe overhead CD</span></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>TOTAL MONTEVIDEO</strong></td><td class="text-right"><strong>198,613</strong></td><td></td><td class="text-right"><strong>$131,147,948</strong></td><td></td></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- SECCIÓN 4: MEDELLÍN                                           -->
+            <!-- ============================================================ -->
+            <div class="soporte-section">
+                <div class="soporte-section-header">
+                    <span>🏭</span>
+                    <h3>Medellín — CEDI Medellín · Detalle de Costos Marzo 2026</h3>
+                </div>
+                <div class="soporte-section-sub">Misma estructura que Febrero 2026 · Nómina y gastos fijos sin variación · Cambio solo en volumen de guías</div>
+                <div class="soporte-section-body">
+
+                    <div class="divider-title">1. Personal Cross-Docking — Medellín</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr>
+                                <th>Cargo / Concepto</th>
+                                <th class="text-right">Cant. Total</th>
+                                <th class="text-right">Directos</th>
+                                <th class="text-right">Temporal</th>
+                                <th class="text-right">Salario Base</th>
+                                <th class="text-right">Aux. Transp.</th>
+                                <th class="text-right">Prestaciones</th>
+                                <th class="text-right">Costo x Persona</th>
+                                <th class="text-right">Adm. 7% ETT</th>
+                                <th class="text-right">Costo Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Aux. Cross-Docking</strong></td>
+                                <td class="text-right">14</td>
+                                <td class="text-right">7</td>
+                                <td class="text-right">7</td>
+                                <td class="text-right">$1,750,905</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,201,121</td>
+                                <td class="text-right">$3,201,121</td>
+                                <td class="text-right">$1,568,549</td>
+                                <td class="text-right">$46,384,241</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Supervisor Cross-Docking</strong></td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">$3,000,000</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,848,000</td>
+                                <td class="text-right">$5,097,095</td>
+                                <td class="text-right">$0</td>
+                                <td class="text-right">$5,097,095</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Asistente de Operaciones</strong></td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">$1,980,000</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,318,680</td>
+                                <td class="text-right">$3,547,775</td>
+                                <td class="text-right">$0</td>
+                                <td class="text-right">$3,547,775</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="formula-box">
+                        <div class="formula-title">Horas Extras Cross-Docking Medellín</div>
+                        <div style="font-size:0.83em; color:#555; display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                            <div>HE Aux. CD: <strong>132 h × $12,025</strong> = <strong>$1,587,300</strong></div>
+                            <div>HE Asist. Oper.: <strong>15 h × $13,599</strong> = <strong>$203,985</strong></div>
+                        </div>
+                    </div>
+                    <div style="text-align:right; font-size:0.88em; color:#333; font-weight:700; padding:8px 0;">
+                        ▶ TOTAL NÓMINA CD MEDELLÍN: <span style="color:var(--dropi-orange);">$27,598,324</span>
+                    </div>
+
+                    <div class="divider-title">2. Gastos Fijos Mensuales — Medellín</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr><th>Concepto</th><th class="text-right">Cantidad</th><th class="text-right">Valor Unitario</th><th class="text-right">Valor Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Arriendo</td><td class="text-right">1</td><td class="text-right">$12,150,000</td><td class="text-right">$12,150,000</td></tr>
+                            <tr><td>Servicios públicos (Agua)</td><td class="text-right">1</td><td class="text-right">$100,000</td><td class="text-right">$100,000</td></tr>
+                            <tr><td>Internet</td><td class="text-right">1</td><td class="text-right">$99,000</td><td class="text-right">$99,000</td></tr>
+                            <tr><td>Promedio gastos papelería e insumos</td><td class="text-right">1</td><td class="text-right">$350,000</td><td class="text-right">$350,000</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>TOTAL GASTOS FIJOS MEDELLÍN</strong></td><td></td><td></td><td class="text-right"><strong>$12,699,000</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <div class="formula-box" style="margin-top:16px;">
+                        <div class="formula-title">🔢 Cálculo CU Medellín Marzo</div>
+                        <div style="font-size:0.85em; color:#555;">
+                            <div>Total CD Medellín = GF <code>$12,699,000</code> + Nómina <code>$27,598,324</code> = <strong>$40,297,324</strong></div>
+                            <div style="margin-top:6px;">Guías <em>propias</em> = Rec. Directas <code>189,863</code> + Fulfillment <code>19,958</code> = <strong>209,821</strong></div>
+                            <div style="margin-top:6px;">Overhead por guía propia = $40,297,324 ÷ 209,821 = <strong>$192.06</strong></div>
+                            <div style="margin-top:6px;"><strong>CU propias = 520 + 192.06 = <span style="color:var(--dropi-orange);">$712.06/guía</span></strong></div>
+                            <div style="margin-top:6px;">Veloces Transportadora: <strong style="color:var(--dropi-orange);">$520.00/guía</strong> exacto</div>
+                        </div>
+                    </div>
+
+                    <div class="divider-title">3. Distribución por Tipo de Operación — Medellín</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr><th>Tipo de Operación</th><th class="text-right">Guías</th><th class="text-right">CU ($/guía)</th><th class="text-right">Costo Total</th><th>Clasificación</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Recogidas Directas</td><td class="text-right">189,863</td><td class="text-right">$712.06</td><td class="text-right">$135,193,036</td><td><span class="badge-green">Propia — absorbe overhead</span></td></tr>
+                            <tr><td>Fulfillment</td><td class="text-right">19,958</td><td class="text-right">$712.06</td><td class="text-right">$14,211,208</td><td><span class="badge-green">Propia — absorbe overhead</span></td></tr>
+                            <tr><td>Veloces Transportadora</td><td class="text-right">18,426</td><td class="text-right">$520.00</td><td class="text-right">$9,581,520</td><td><span class="badge-gray">$520 exacto — sin overhead</span></td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>TOTAL MEDELLÍN</strong></td><td class="text-right"><strong>228,247</strong></td><td></td><td class="text-right"><strong>$158,985,764</strong></td><td></td></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- SECCIÓN 5: CALI                                               -->
+            <!-- ============================================================ -->
+            <div class="soporte-section">
+                <div class="soporte-section-header">
+                    <span>🌿</span>
+                    <h3>Cali — CEDI Cali · Detalle de Costos Marzo 2026</h3>
+                </div>
+                <div class="soporte-section-sub">Misma estructura que Febrero 2026 · Nómina y gastos fijos sin variación · Cambio solo en volumen de guías</div>
+                <div class="soporte-section-body">
+
+                    <div class="divider-title">1. Personal Cross-Docking — Cali</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr>
+                                <th>Cargo / Concepto</th>
+                                <th class="text-right">Cant. Total</th>
+                                <th class="text-right">Directos</th>
+                                <th class="text-right">Temporal</th>
+                                <th class="text-right">Salario Base</th>
+                                <th class="text-right">Aux. Transp.</th>
+                                <th class="text-right">Prestaciones</th>
+                                <th class="text-right">Costo x Persona</th>
+                                <th class="text-right">Adm. 7% ETT</th>
+                                <th class="text-right">Costo Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Aux. Cross-Docking</strong></td>
+                                <td class="text-right">10</td>
+                                <td class="text-right">7</td>
+                                <td class="text-right">3</td>
+                                <td class="text-right">$1,750,905</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,201,121</td>
+                                <td class="text-right">$3,201,121</td>
+                                <td class="text-right">$672,235</td>
+                                <td class="text-right">$32,683,444</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Supervisor Cross-Docking</strong></td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">$3,000,000</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,848,000</td>
+                                <td class="text-right">$5,097,095</td>
+                                <td class="text-right">$0</td>
+                                <td class="text-right">$5,097,095</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Asistente de Operaciones</strong></td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">$1,980,000</td>
+                                <td class="text-right">$249,095</td>
+                                <td class="text-right">$1,318,680</td>
+                                <td class="text-right">$3,547,775</td>
+                                <td class="text-right">$0</td>
+                                <td class="text-right">$3,547,775</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="formula-box">
+                        <div class="formula-title">Horas Extras Cross-Docking Cali</div>
+                        <div style="font-size:0.83em; color:#555; display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                            <div>HE Aux. CD: <strong>22 h × $12,025</strong> = <strong>$264,550</strong></div>
+                            <div>HE Asist. Oper.: <strong>4 h × $13,599</strong> = <strong>$54,396</strong></div>
+                        </div>
+                    </div>
+                    <div style="text-align:right; font-size:0.88em; color:#333; font-weight:700; padding:8px 0;">
+                        ▶ TOTAL NÓMINA CD CALI: <span style="color:var(--dropi-orange);">$18,768,849 ✓</span>
+                    </div>
+
+                    <div class="divider-title">2. Gastos Fijos Mensuales — Cali</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr><th>Concepto</th><th class="text-right">Cantidad</th><th class="text-right">Valor Unitario</th><th class="text-right">Valor Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Arriendo</td><td class="text-right">1</td><td class="text-right">$8,931,000</td><td class="text-right">$8,931,000</td></tr>
+                            <tr><td>Servicios públicos (Agua)</td><td class="text-right">1</td><td class="text-right">$100,000</td><td class="text-right">$100,000</td></tr>
+                            <tr><td>Internet</td><td class="text-right">1</td><td class="text-right">$90,000</td><td class="text-right">$90,000</td></tr>
+                            <tr><td>Promedio gastos papelería e insumos</td><td class="text-right">1</td><td class="text-right">$300,000</td><td class="text-right">$300,000</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>TOTAL GASTOS FIJOS CALI</strong></td><td></td><td></td><td class="text-right"><strong>$9,421,000</strong></td></tr>
+                        </tfoot>
+                    </table>
+
+                    <div class="formula-box" style="margin-top:16px;">
+                        <div class="formula-title">🔢 Cálculo CU Cali Marzo</div>
+                        <div style="font-size:0.85em; color:#555;">
+                            <div>Total CD Cali = GF <code>$9,421,000</code> + Nómina <code>$18,768,849</code> = <strong>$28,189,849</strong></div>
+                            <div style="margin-top:6px;">Guías <em>propias</em> = Rec. Directas <code>153,309</code> + Fulfillment <code>32,671</code> = <strong>185,980</strong></div>
+                            <div style="margin-top:6px;">Overhead por guía propia = $28,189,849 ÷ 185,980 = <strong>$151.57</strong></div>
+                            <div style="margin-top:6px;"><strong>CU propias = 520 + 151.57 = <span style="color:var(--dropi-orange);">$671.57/guía</span></strong></div>
+                            <div style="margin-top:6px;">Veloces Transportadora: <strong style="color:var(--dropi-orange);">$520.00/guía</strong> exacto</div>
+                        </div>
+                    </div>
+
+                    <div class="divider-title">3. Distribución por Tipo de Operación — Cali</div>
+                    <table class="s-table">
+                        <thead>
+                            <tr><th>Tipo de Operación</th><th class="text-right">Guías</th><th class="text-right">CU ($/guía)</th><th class="text-right">Costo Total</th><th>Clasificación</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Recogidas Directas</td><td class="text-right">153,309</td><td class="text-right">$671.57</td><td class="text-right">$102,958,434</td><td><span class="badge-green">Propia — absorbe overhead</span></td></tr>
+                            <tr><td>Fulfillment</td><td class="text-right">32,671</td><td class="text-right">$671.57</td><td class="text-right">$21,941,015</td><td><span class="badge-green">Propia — absorbe overhead</span></td></tr>
+                            <tr><td>Veloces Transportadora</td><td class="text-right">18,041</td><td class="text-right">$520.00</td><td class="text-right">$9,381,320</td><td><span class="badge-gray">$520 exacto — sin overhead</span></td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td><strong>TOTAL CALI</strong></td><td class="text-right"><strong>204,021</strong></td><td></td><td class="text-right"><strong>$134,280,769</strong></td><td></td></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- SECCIÓN 6: HISTÓRICO MOVILIZADOS Y COMPARATIVO               -->
+            <!-- ============================================================ -->
+            <div class="soporte-section">
+                <div class="soporte-section-header">
+                    <span>📈</span>
+                    <h3>Histórico de Movilizados y Costo Recuperable — 2025/2026</h3>
+                </div>
+                <div class="soporte-section-body">
+                    <div style="background:#FFF8F0; border:1px solid #FFD0A0; border-radius:10px; padding:12px 16px; margin-bottom:16px; font-size:0.82em; color:#7A3500;">
+                        ⚠️ <strong>Nota:</strong> Los movilizados totales son el universo completo de guías Dropi por período (incluyendo todas las líneas de negocio). Son diferentes a la suma de guías por ciudad/CEDI. Se usan exclusivamente para el KPI <strong>Costo Recuperable</strong>.
+                    </div>
+                    <table class="s-table">
+                        <thead>
+                            <tr>
+                                <th>Período</th>
+                                <th class="text-right">Movilizados Totales</th>
+                                <th class="text-right">Costo Total Operación</th>
+                                <th class="text-right">Costo Recuperable</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Junio 2025</td><td class="text-right">1,800,227</td><td class="text-right">$354,962,991</td><td class="text-right">$197.18</td><td><span class="badge-gray">Histórico</span></td></tr>
+                            <tr><td>Julio 2025</td><td class="text-right">2,104,802</td><td class="text-right">$360,673,111</td><td class="text-right">$171.36</td><td><span class="badge-gray">Histórico</span></td></tr>
+                            <tr><td>Agosto 2025</td><td class="text-right">1,965,797</td><td class="text-right">$491,062,887</td><td class="text-right">$249.79</td><td><span class="badge-gray">Histórico</span></td></tr>
+                            <tr><td>Septiembre 2025</td><td class="text-right">1,958,159</td><td class="text-right">$499,100,007</td><td class="text-right">$254.87</td><td><span class="badge-gray">Histórico</span></td></tr>
+                            <tr><td>Octubre 2025</td><td class="text-right">2,037,123</td><td class="text-right">$514,680,247</td><td class="text-right">$252.66</td><td><span class="badge-gray">Histórico</span></td></tr>
+                            <tr><td>Noviembre 2025</td><td class="text-right">2,196,409</td><td class="text-right">$493,940,567</td><td class="text-right">$224.89</td><td><span class="badge-gray">Histórico</span></td></tr>
+                            <tr><td>Diciembre 2025</td><td class="text-right">2,345,576</td><td class="text-right">$564,147,847</td><td class="text-right">$240.52</td><td><span class="badge-gray">Histórico</span></td></tr>
+                            <tr><td>Enero 2026</td><td class="text-right">2,405,197</td><td class="text-right">$585,600,347</td><td class="text-right">$243.48</td><td><span class="badge-green">Corregido</span></td></tr>
+                            <tr><td>Febrero 2026</td><td class="text-right">2,197,786</td><td class="text-right">$553,006,227</td><td class="text-right">$251.61</td><td><span class="badge-green">Corregido</span></td></tr>
+                            <tr style="background:#FFF5EE;"><td><strong>Marzo 2026</strong></td><td class="text-right"><strong>2,445,533</strong></td><td class="text-right"><strong>$615,422,655</strong></td><td class="text-right"><strong>$251.65</strong></td><td><span class="badge-blue">Actual</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div><!-- /tab-soporte -->
+    </div><!-- /container -->
+
+        <script>
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + tabId).classList.add('active');
+            btn.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        </script>
+
 
     <script>
         // ========================================
